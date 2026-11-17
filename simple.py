@@ -1,4 +1,5 @@
 from langgraph.graph import StateGraph, START, END
+import os
 from pydantic import BaseModel
 from typing import TypedDict
 from langchain_groq import ChatGroq
@@ -12,6 +13,12 @@ from mcpclient import get_tools
 import asyncio
 
 load_dotenv()
+GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+TAVILY_API_KEY = os.getenv("TAVILY_API_KEY")
+LANGFUSE_SECRET_KEY = os.getenv("LANGFUSE_SECRET_KEY")
+LANGFUSE_PUBLIC_KEY = os.getenv("LANGFUSE_PUBLIC_KEY")
+LANGFUSE_HOST = os.getenv("LANGFUSE_HOST")
+
 handler = CallbackHandler()
 
 client = Langfuse()
